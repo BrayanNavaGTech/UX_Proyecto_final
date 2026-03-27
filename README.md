@@ -1,4 +1,4 @@
-# 🚀 Instalación y ejecución del proyecto
+# Instalación y ejecución del proyecto
 
 # 1. Instalar dependencias
 pnpm install
@@ -10,11 +10,12 @@ pnpm run dev
 # Después de ejecutar el proyecto por primera vez, se creará el archivo .env.local
 # Abre ese archivo y agrega lo siguiente:
 
+cat <<EOF > .env.local
 # Convex environment variables for development
 CONVEX_DEPLOYMENT=dev:lovely-orca-262 # team: brayan-nava
 NEXT_PUBLIC_CONVEX_URL=https://lovely-orca-262.convex.cloud
 NEXT_PUBLIC_CONVEX_SITE_URL=https://lovely-orca-262.convex.site
+EOF
 
-# 4. Si el error persiste:
-# Detén el proyecto (Ctrl + C) y vuelve a ejecutarlo
+# 4. Si el error persiste, detén el proyecto y vuelve a ejecutarlo
 pnpm run dev
