@@ -20,6 +20,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "../context/AccessibilityContext.tsx"],
   "exclude": ["./_generated"]
 }

@@ -1,11 +1,12 @@
 "use client";
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AccessibilityContext = createContext({
   fontSize: 1,
   highContrast: false,
   toggleContrast: () => {},
-  updateFontSize: (val: number) => {},
+  setScale: (val: number) => {},
 });
 
 export const AccessibilityProvider = ({ children }: { children: React.ReactNode }) => {
@@ -13,9 +14,14 @@ export const AccessibilityProvider = ({ children }: { children: React.ReactNode 
   const [highContrast, setHighContrast] = useState(false);
 
   useEffect(() => {
-    const body = document.body;
-    highContrast ? body.classList.add("dark", "high-contrast") : body.classList.remove("dark", "high-contrast");
-    body.style.fontSize = `${fontSize * 16}px`;
+    const root = document.documentElement;
+    root.style.setProperty('--font-multiplier', fontSize.toString());
+    
+    if (highContrast) {
+      document.body.classList.add("high-contrast");
+    } else {
+      document.body.classList.remove("high-contrast");
+    }
   }, [fontSize, highContrast]);
 
   return (
@@ -23,7 +29,7 @@ export const AccessibilityProvider = ({ children }: { children: React.ReactNode 
       fontSize, 
       highContrast, 
       toggleContrast: () => setHighContrast(!highContrast),
-      updateFontSize: (val) => setFontSize(val) 
+      setScale: (val) => setFontSize(val) 
     }}>
       {children}
     </AccessibilityContext.Provider>

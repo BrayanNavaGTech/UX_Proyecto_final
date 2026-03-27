@@ -8,7 +8,10 @@
  * @module
  */
 
-import type * as AccessibilityContext from "../AccessibilityContext.js";
+import type * as appointments from "../appointments.js";
+import type * as doctors from "../doctors.js";
+import type * as patients from "../patients.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -17,7 +20,10 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
-  AccessibilityContext: typeof AccessibilityContext;
+  appointments: typeof appointments;
+  doctors: typeof doctors;
+  patients: typeof patients;
+  users: typeof users;
 }>;
 
 /**
