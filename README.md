@@ -1,4 +1,3 @@
-````markdown
 ## Instalación y ejecución del proyecto
 
 Sigue estos pasos para ejecutar el proyecto en tu entorno local:
